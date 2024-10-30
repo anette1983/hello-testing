@@ -2,13 +2,14 @@
   "compilerOptions": {
     "target": "es2017",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["*"],
       "@/lib/*": ["lib/*"]
     },
     "allowJs": true,
-    "skipLibCheck": true,
+    // "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
