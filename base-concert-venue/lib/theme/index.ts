@@ -52,5 +52,5 @@ export const theme = extendTheme(
       },
     },
   },
-  withDefaultColorScheme({ colorScheme: "gray" })
+  withDefaultColorScheme({ colorScheme: "gray" }),
 );

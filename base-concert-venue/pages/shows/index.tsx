@@ -55,7 +55,7 @@ export default function Shows({
     {
       fallbackData: isrShows,
       refreshInterval: THIRTY_SECONDS,
-    }
+    },
   );
 
   return (

@@ -33,7 +33,7 @@ const defaultDbPath = getDbPath();
 
 export async function getJSONfromFile<ItemType extends JsonDataType>(
   filename: filenames,
-  dbPath: string = defaultDbPath
+  dbPath: string = defaultDbPath,
 ): Promise<ItemType[]> {
   const filePath = path.join(dbPath, filename);
   const data = await fs.readFile(filePath);
@@ -43,7 +43,7 @@ export async function getJSONfromFile<ItemType extends JsonDataType>(
 export async function getItemById<ItemType extends JsonDataType>(
   itemId: number,
   filename: filenames,
-  itemType: string
+  itemType: string,
 ): Promise<ItemType> {
   const items = await getJSONfromFile<ItemType>(filename);
   const itemData = items.filter((u: ItemType) => u.id === itemId);
@@ -55,7 +55,7 @@ export async function getItemById<ItemType extends JsonDataType>(
 export async function writeJSONToFile<T extends JsonDataType>(
   filename: filenames,
   data: Array<T>,
-  dbPath: string = defaultDbPath
+  dbPath: string = defaultDbPath,
 ): Promise<void> {
   const filePath = path.join(dbPath, filename);
   const jsonData = JSON.stringify(data);
@@ -64,7 +64,7 @@ export async function writeJSONToFile<T extends JsonDataType>(
 
 export async function deleteItem<T extends JsonDataType>(
   filename: filenames,
-  itemId: number
+  itemId: number,
 ): Promise<number> {
   try {
     const items = await getJSONfromFile<T>(filename);
@@ -77,7 +77,7 @@ export async function deleteItem<T extends JsonDataType>(
     return itemId;
   } catch (e) {
     throw new Error(
-      `Could not delete item id ${itemId} from ${filename}: ${e}`
+      `Could not delete item id ${itemId} from ${filename}: ${e}`,
     );
   }
 }
@@ -89,7 +89,7 @@ export async function updateItem<DataType extends JsonDataType>(
   itemId: number,
   filename: filenames,
   // should be fast-json-patch Operation, but I can't destructure on import
-  itemPatch: Operation[]
+  itemPatch: Operation[],
 ): Promise<DataType> {
   try {
     const items = await getJSONfromFile<DataType>(filename);
@@ -115,7 +115,7 @@ export async function updateItem<DataType extends JsonDataType>(
     return updatedData;
   } catch (e) {
     throw new Error(
-      `Could not delete item id ${itemId} from ${filename}: ${e}`
+      `Could not delete item id ${itemId} from ${filename}: ${e}`,
     );
   }
 }

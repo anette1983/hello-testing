@@ -24,7 +24,7 @@ import {
 function getUnique<ItemType>(
   items: Array<ItemType>,
   itemType: string,
-  containerType: string
+  containerType: string,
 ): ItemType {
   // find a random item and swap it with the last item for popping
   const randomIndex = Math.floor(Math.random() * items.length);

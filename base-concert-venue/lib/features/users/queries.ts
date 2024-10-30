@@ -31,7 +31,7 @@ export async function addUser(newUserData: NewAuthUser): Promise<AuthUser> {
   const maxId = ids.reduce(
     (tempMaxId: number, itemId: number) =>
       itemId > tempMaxId ? itemId : tempMaxId,
-    0
+    0,
   );
 
   // the new user will have an id of the max id plus 1
@@ -44,7 +44,7 @@ export async function addUser(newUserData: NewAuthUser): Promise<AuthUser> {
 
 export async function updateUser(
   userId: number,
-  patch: Operation[]
+  patch: Operation[],
 ): Promise<AuthUser> {
   return updateItem<AuthUser>(userId, filenames.users, patch);
 }
@@ -54,14 +54,14 @@ export async function deleteUser(userId: number): Promise<number> {
 }
 
 export async function getReservationsByUserId(
-  userId: number
+  userId: number,
 ): Promise<Array<ReservationWithShow>> {
   const reservations = await getReservations();
   const userReservations = reservations.filter(
-    (reservation) => reservation.userId === userId
+    (reservation) => reservation.userId === userId,
   );
   const shows = await Promise.all(
-    userReservations.map((reservation) => getShowById(reservation.showId))
+    userReservations.map((reservation) => getShowById(reservation.showId)),
   );
   return userReservations.map((reservation, i) => ({
     ...reservation,

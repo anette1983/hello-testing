@@ -5,7 +5,7 @@ import { ShowWithoutAvailableSeatCount } from "@/lib/features/shows/types";
 import { generateNewBand } from "./newBand";
 
 export const generateNewShow = (
-  showId: number
+  showId: number,
 ): ShowWithoutAvailableSeatCount => {
   // note: this band will not exist in the db,
   // so link to the band from the /shows page will not work

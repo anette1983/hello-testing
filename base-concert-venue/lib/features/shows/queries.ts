@@ -11,7 +11,7 @@ import { getAvailableSeatCountByShowId } from "@/lib/features/reservations/queri
 import type { Show, ShowWithoutAvailableSeatCount } from "./types";
 
 export async function writeShows(
-  newShowsArray: ShowWithoutAvailableSeatCount[]
+  newShowsArray: ShowWithoutAvailableSeatCount[],
 ): Promise<void> {
   await writeJSONToFile(filenames.shows, newShowsArray);
 }
@@ -39,7 +39,7 @@ export async function getShowById(showId: number): Promise<Show> {
   const showWithoutSeatCount = await getItemById<ShowWithoutAvailableSeatCount>(
     showId,
     filenames.shows,
-    "show"
+    "show",
   );
   const availableSeatCountByShowId = await getAvailableSeatCountByShowId();
   const availableSeatCount =

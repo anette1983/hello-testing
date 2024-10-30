@@ -29,7 +29,7 @@ export function passwordIsValid(password: string, user: AuthUser): boolean {
     user.salt,
     user.iterations,
     user.keylen,
-    user.digest
+    user.digest,
   );
   return user.hash === attemptHash.toString();
 }
@@ -49,7 +49,7 @@ export function removePasswordandAddToken(user: AuthUser): User {
 export function createJWT(user: User): string {
   if (!env.NEXTAUTH_SECRET) {
     throw new Error(
-      "Unable to create token; please define NEXTAUTH_SECRET in .env.local"
+      "Unable to create token; please define NEXTAUTH_SECRET in .env.local",
     );
   }
   return jsonwebtoken.sign(user, env.NEXTAUTH_SECRET, { expiresIn: "24h" });

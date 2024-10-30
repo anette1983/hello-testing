@@ -61,7 +61,7 @@ export const Reservation = ({ showId, submitPurchase }: ReservationProps) => {
       revalidateOnReconnect: true,
       revalidateOnFocus: true,
       refreshInterval: FIFTEEN_SECONDS,
-    }
+    },
   );
 
   if (error) return <QueryError message="Could not retrieve show info" />;

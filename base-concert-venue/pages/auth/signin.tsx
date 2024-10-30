@@ -40,7 +40,7 @@ export default function SignIn() {
   const { isLoading, isLoggedIn } = useSessionStatus();
   if (isLoggedIn) {
     router.push(
-      callbackUrl && typeof callbackUrl === "string" ? callbackUrl : "/user"
+      callbackUrl && typeof callbackUrl === "string" ? callbackUrl : "/user",
     );
   }
 
@@ -57,8 +57,8 @@ export default function SignIn() {
       // @ts-expect-error (docs for signIn return value conflict with TypeScript)
       ({ error }) => {
         if (error) setAuthError(error);
-      }
-    )
+      },
+    ),
   );
 
   return (

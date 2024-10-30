@@ -16,7 +16,7 @@ export const readFakeData = async () => {
       getJSONfromFile(filenames.reservations, JSON_FILEPATH),
       getJSONfromFile(filenames.shows, JSON_FILEPATH),
       getJSONfromFile(filenames.users, JSON_FILEPATH),
-    ]
+    ],
   );
 
   return {

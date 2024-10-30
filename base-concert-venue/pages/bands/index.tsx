@@ -13,7 +13,7 @@ const removeLeadingThe = (bandName: string) => bandName.replace(/^the /i, "");
 export async function getStaticProps() {
   const isrBands = await getBands();
   isrBands.sort((a, b) =>
-    removeLeadingThe(a.name) > removeLeadingThe(b.name) ? 0 : -1
+    removeLeadingThe(a.name) > removeLeadingThe(b.name) ? 0 : -1,
   );
 
   return {

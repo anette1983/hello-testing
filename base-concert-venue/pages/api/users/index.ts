@@ -21,7 +21,7 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
       user.email === email && passwordIsValid(password, user)
         ? user
         : foundUser,
-    null
+    null,
   );
 
   if (!validUser) return res.status(400).json({ message: "Invalid login" });

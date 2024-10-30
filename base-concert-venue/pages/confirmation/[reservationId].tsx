@@ -35,7 +35,7 @@ export default function Confirmation() {
             showId,
             userId,
             seatCount,
-          }
+          },
         )
         .then((data) => setReservation(data.data.reservation))
         .catch((e) => {

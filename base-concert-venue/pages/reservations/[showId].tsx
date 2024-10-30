@@ -15,7 +15,7 @@ export default function Reservations() {
     reservedSeatCount: number;
   }) => {
     router.push(
-      `/confirmation/${reservationId}?seatCount=${reservedSeatCount}&showId=${showId}`
+      `/confirmation/${reservationId}?seatCount=${reservedSeatCount}&showId=${showId}`,
     );
   };
 
