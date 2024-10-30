@@ -2,5 +2,8 @@
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "eslint.workingDirectories": [
     { "directory": "./base-concert-venue", "changeProcessCWD": true }
-  ]
+  ],
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.tsdk": "node_modules/typescript/lib"
+  
 }
